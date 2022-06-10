@@ -13,6 +13,7 @@ public class JsonParser implements Parser {
         gson = new Gson();
     }
 
+
     public void writeToFile(Cart cart) {
         try (FileWriter writer = new FileWriter("src/main/resources/" + cart.getCartName() + ".json")) {
             writer.write(gson.toJson(cart));
