@@ -50,11 +50,11 @@ public class Tests {
     @Test
     public void testCartName(){
         String expectedResult = "CartTest1";
-        Assertions.assertEquals(getCartName(), expectedResult, "Result is mismatched");
+        Assertions.assertEquals(getCartName("Cart1"), expectedResult, "Result is mismatched");
     }
 
-    private String getCartName(){
-        Cart cart = new Cart("CartTest1");
+    private String getCartName(String cartName){
+        Cart cart = new Cart(cartName);
         return cart.getCartName();
     }
 
@@ -95,7 +95,7 @@ public class Tests {
     @Test
     public void testCartGroupedAssertion(){
         assertAll("cart",
-                ()-> Assertions.assertEquals(getCartName(),"CartTest1"),
+                ()-> Assertions.assertEquals(getCartName("CartTest1"),"CartTest1"),
                 () -> Assertions.assertEquals(getCartTotalPrice("Cart1", (550.5 * 2 + (550.5 * 0.2) * 2)), (550.5 * 2 + (550.5 * 0.2) * 2))
                 );
     }
