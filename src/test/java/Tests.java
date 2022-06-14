@@ -17,41 +17,40 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 public class Tests {
     @Test
     public void testJSonParserWriteToFile(){
-
-            JsonParser jsonParser = new JsonParser();
-            jsonParser.writeToFile(new Cart("CartItem"));
-            Path path = Paths.get("src/main/resources/CartItem.json");
-            Assertions.assertTrue(Files.exists(path), String.format("File %s doesn't exist", path));
+        JsonParser jsonParser = new JsonParser();
+        jsonParser.writeToFile(new Cart("CartItem"));
+        Path path = Paths.get("src/main/resources/CartItem.json");
+        Assertions.assertTrue(Files.exists(path), String.format("File %s doesn't exist", path));
     }
 
     @Test
     public void testJSonParserReadFromFile(){
         JsonParser jsonParser = new JsonParser();
-        Assertions.assertNotNull(jsonParser.readFromFile(new File("src/main/resources/CartItem.json")));
+        Assertions.assertNotNull(jsonParser.readFromFile(new File("src/main/resources/CartItem.json")),"File doesn't exist");
     }
 
     @Test
-    public void testRealItem(){
+    public void testWeightOfRealItem(){
         BigDecimal expectedResult = new BigDecimal(200);
         RealItem realItem = new RealItem();
 
         realItem.setWeight(200);
-        Assertions.assertEquals(expectedResult,realItem.getWeight() , String.format("Expected weight was %s, but actual was %s", expectedResult, realItem.getWeight()));
+        Assertions.assertEquals(expectedResult,realItem.getWeight() ,"Weight is mismatched");
     }
 
     @Test
-    public void testVirtualItem(){
+    public void testSizeOfVirtualItem(){
         BigDecimal expectedResult = new BigDecimal(25.5);
         VirtualItem virtualItem = new VirtualItem();
 
         virtualItem.setSizeOnDisk(25.5);
-        Assertions.assertEquals(virtualItem.getSizeOnDisk(), expectedResult, String.format("Expected size was %s, but actual was %s", expectedResult, virtualItem.getSizeOnDisk()));
+        Assertions.assertEquals(virtualItem.getSizeOnDisk(), expectedResult, "Size is mismatched");
     }
 
     @Test
-    public void testCart1(){
+    public void testCartName(){
         String expectedResult = "CartTest1";
-        Assertions.assertEquals(String.format("Expected result was %s, but actual was %s", expectedResult, getCartName()), getCartName(), expectedResult);
+        Assertions.assertEquals(getCartName(), expectedResult, "Result is mismatched");
     }
 
     private String getCartName(){
@@ -60,13 +59,13 @@ public class Tests {
     }
 
     @Test
-    public void testCart2(){
+    public void testCartTotalPrice(){
         BigDecimal expectedPrice = new BigDecimal(550.5 * 2 + (550.5 * 0.2) * 2);
-        Assertions.assertEquals(getCartTotalPrice("cart1", 550.5), expectedPrice, String.format("Expected price was %s, but actual was %s", expectedPrice, getCartTotalPrice("cart1", 550.5)));
+        Assertions.assertEquals(getCartTotalPrice("cart1", 550.5), expectedPrice, "Price is mismatched");
     }
 
     @Test
-    public void testTestCart() {
+    public void testCartForNull() {
         Assertions.assertThrows(NullPointerException.class, () -> {
             JsonParser jsonParser = new JsonParser();
             jsonParser.writeToFile(null);
