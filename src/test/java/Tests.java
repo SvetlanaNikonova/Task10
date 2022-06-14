@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import static org.testng.AssertJUnit.*;
+
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 public class Tests {
@@ -21,13 +21,13 @@ public class Tests {
             JsonParser jsonParser = new JsonParser();
             jsonParser.writeToFile(new Cart("CartItem"));
             Path path = Paths.get("src/main/resources/CartItem.json");
-            assertTrue(String.format("File %s doesn't exist", path), Files.exists(path));
+            Assertions.assertTrue(Files.exists(path), String.format("File %s doesn't exist", path));
     }
 
     @Test
     public void testJSonParserReadFromFile(){
         JsonParser jsonParser = new JsonParser();
-        assertNotNull(jsonParser.readFromFile(new File("src/main/resources/CartItem.json")));
+        Assertions.assertNotNull(jsonParser.readFromFile(new File("src/main/resources/CartItem.json")));
     }
 
     @Test
@@ -36,7 +36,7 @@ public class Tests {
         RealItem realItem = new RealItem();
 
         realItem.setWeight(200);
-        assertEquals(String.format("Expected weight was %s, but actual was %s", expectedResult, realItem.getWeight()),realItem.getWeight(), expectedResult);
+        Assertions.assertEquals(expectedResult,realItem.getWeight() , String.format("Expected weight was %s, but actual was %s", expectedResult, realItem.getWeight()));
     }
 
     @Test
@@ -45,13 +45,13 @@ public class Tests {
         VirtualItem virtualItem = new VirtualItem();
 
         virtualItem.setSizeOnDisk(25.5);
-        assertEquals(String.format("Expected size was %s, but actual was %s", expectedResult, virtualItem.getSizeOnDisk()), virtualItem.getSizeOnDisk(), expectedResult);
+        Assertions.assertEquals(virtualItem.getSizeOnDisk(), expectedResult, String.format("Expected size was %s, but actual was %s", expectedResult, virtualItem.getSizeOnDisk()));
     }
 
     @Test
     public void testCart1(){
         String expectedResult = "CartTest1";
-        assertEquals(String.format("Expected result was %s, but actual was %s", expectedResult, getCartName()), getCartName(), expectedResult);
+        Assertions.assertEquals(String.format("Expected result was %s, but actual was %s", expectedResult, getCartName()), getCartName(), expectedResult);
     }
 
     private String getCartName(){
@@ -62,7 +62,7 @@ public class Tests {
     @Test
     public void testCart2(){
         BigDecimal expectedPrice = new BigDecimal(550.5 * 2 + (550.5 * 0.2) * 2);
-        assertEquals(String.format("Expected price was %s, but actual was %s", expectedPrice, getCartTotalPrice("cart1", 550.5)), getCartTotalPrice("cart1", 550.5), expectedPrice);
+        Assertions.assertEquals(getCartTotalPrice("cart1", 550.5), expectedPrice, String.format("Expected price was %s, but actual was %s", expectedPrice, getCartTotalPrice("cart1", 550.5)));
     }
 
     @Test
@@ -96,8 +96,8 @@ public class Tests {
     @Test
     public void testCartGroupedAssertion(){
         assertAll("cart",
-                ()-> assertEquals(getCartName(),"CartTest1"),
-                () -> assertEquals(getCartTotalPrice("Cart1", (550.5 * 2 + (550.5 * 0.2) * 2)), (550.5 * 2 + (550.5 * 0.2) * 2))
+                ()-> Assertions.assertEquals(getCartName(),"CartTest1"),
+                () -> Assertions.assertEquals(getCartTotalPrice("Cart1", (550.5 * 2 + (550.5 * 0.2) * 2)), (550.5 * 2 + (550.5 * 0.2) * 2))
                 );
     }
 }
