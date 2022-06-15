@@ -14,7 +14,7 @@ import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 
-public class Tests {
+public class JsonParserTest {
     @Test
     public void testJSonParserWriteToFile(){
         JsonParser jsonParser = new JsonParser();
