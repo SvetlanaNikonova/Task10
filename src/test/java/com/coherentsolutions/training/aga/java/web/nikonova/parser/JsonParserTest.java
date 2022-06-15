@@ -1,10 +1,11 @@
-package parser;
+package com.coherentsolutions.training.aga.java.web.nikonova.parser;
 
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
-import shop.Cart;
+import com.coherentsolutions.training.aqa.java.web.nikonova.parser.JsonParser;
+import com.coherentsolutions.training.aqa.java.web.nikonova.shop.Cart;
 
 import java.io.File;
 import java.nio.file.Files;

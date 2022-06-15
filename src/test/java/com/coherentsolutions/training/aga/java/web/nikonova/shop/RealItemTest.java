@@ -1,7 +1,8 @@
-package shop;
+package com.coherentsolutions.training.aga.java.web.nikonova.shop;
 
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import com.coherentsolutions.training.aqa.java.web.nikonova.shop.RealItem;
 
 import java.math.BigDecimal;
 

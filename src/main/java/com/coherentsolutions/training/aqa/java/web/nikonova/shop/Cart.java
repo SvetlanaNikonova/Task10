@@ -1,4 +1,4 @@
-package shop;
+package com.coherentsolutions.training.aqa.java.web.nikonova.shop;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package shop;
+package com.coherentsolutions.training.aqa.java.web.nikonova.shop;
 
 public class Item {
 

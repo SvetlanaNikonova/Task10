@@ -1,4 +1,4 @@
-package parser;
+package com.coherentsolutions.training.aqa.java.web.nikonova.parser;
 
 public class NoSuchFileException extends RuntimeException {
 
