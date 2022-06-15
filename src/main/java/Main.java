@@ -1,8 +1,8 @@
-import parser.JsonParser;
-import parser.Parser;
-import shop.Cart;
-import shop.RealItem;
-import shop.VirtualItem;
+import com.coherentsolutions.training.aqa.java.web.nikonova.parser.JsonParser;
+import com.coherentsolutions.training.aqa.java.web.nikonova.parser.Parser;
+import com.coherentsolutions.training.aqa.java.web.nikonova.shop.Cart;
+import com.coherentsolutions.training.aqa.java.web.nikonova.shop.RealItem;
+import com.coherentsolutions.training.aqa.java.web.nikonova.shop.VirtualItem;
 
 import java.io.File;
 

@@ -1,7 +1,7 @@
-package parser;
+package com.coherentsolutions.training.aqa.java.web.nikonova.parser;
 
 import com.google.gson.Gson;
-import shop.Cart;
+import com.coherentsolutions.training.aqa.java.web.nikonova.shop.Cart;
 
 import java.io.*;
 
@@ -12,6 +12,7 @@ public class JsonParser implements Parser {
     public JsonParser() {
         gson = new Gson();
     }
+
 
     public void writeToFile(Cart cart) {
         try (FileWriter writer = new FileWriter("src/main/resources/" + cart.getCartName() + ".json")) {
