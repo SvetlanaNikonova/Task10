@@ -1,21 +1,16 @@
-
+package shop;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import parser.JsonParser;
-import shop.Cart;
-import shop.RealItem;
-import shop.VirtualItem;
-
 import java.math.BigDecimal;
-
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 public class CartTest {
 
     @Test
     public void testCartName() {
-        String expectedResult = "CartTest";
-        Assertions.assertEquals(getCartName("CartTest"), expectedResult, "Result is mismatched");
+        String expectedResult = "shop.CartTest";
+        Assertions.assertEquals(getCartName("shop.CartTest"), expectedResult, "Result is mismatched");
     }
 
     private String getCartName(String cartName) {
@@ -26,7 +21,7 @@ public class CartTest {
     @Test
     public void testCartTotalPrice() {
         BigDecimal expectedPrice = new BigDecimal(550.5 * 2 + (550.5 * 0.2) * 2);
-        Assertions.assertEquals(getCartTotalPrice("CartTest", 550.5), expectedPrice.doubleValue(), "Price is mismatched");
+        Assertions.assertEquals(getCartTotalPrice("shop.CartTest", 550.5), expectedPrice.doubleValue(), "Price is mismatched");
     }
 
     @Test
@@ -52,8 +47,8 @@ public class CartTest {
     public void testCartGroupedAssertion() {
         BigDecimal expectedPrice = new BigDecimal(550.5 * 2 + (550.5 * 0.2) * 2);
         assertAll("cart",
-                () -> Assertions.assertEquals(getCartName("CartTest"), "CartTest"),
-                () -> Assertions.assertEquals(getCartTotalPrice("CartTest", 550.5), expectedPrice.doubleValue())
+                () -> Assertions.assertEquals(getCartName("shop.CartTest"), "shop.CartTest"),
+                () -> Assertions.assertEquals(getCartTotalPrice("shop.CartTest", 550.5), expectedPrice.doubleValue())
         );
     }
 }

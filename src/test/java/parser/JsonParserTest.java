@@ -1,11 +1,11 @@
+package parser;
+
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import parser.JsonParser;
-import parser.NoSuchFileException;
 import shop.Cart;
+
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;

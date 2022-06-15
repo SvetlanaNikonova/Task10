@@ -1,6 +1,7 @@
+package shop;
+
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import shop.VirtualItem;
 
 import java.math.BigDecimal;
 
@@ -13,6 +14,4 @@ public class VirtualtemTest {
         Assertions.assertEquals(virtualItem.getSizeOnDisk(), expectedResult.doubleValue(), "Size is mismatched");
 
     }
-
-
 }

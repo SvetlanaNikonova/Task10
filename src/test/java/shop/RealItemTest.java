@@ -1,6 +1,7 @@
+package shop;
+
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import shop.RealItem;
 
 import java.math.BigDecimal;
 
